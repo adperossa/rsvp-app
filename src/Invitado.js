@@ -15,7 +15,9 @@ const Invitado = ({ nombre, confirmado, editando, handleToggle, handleEditarNomb
         onChange={() => handleToggle('confirmado')} 
       /> Asistir&aacute;
     </label>
-    <button onClick={() => handleToggle('editando')}>editar</button>
+    <button onClick={() => handleToggle('editando')}>
+      {editando ? 'guardar' : 'editar'}
+    </button>
     <button>eliminar</button>
   </li>
 
