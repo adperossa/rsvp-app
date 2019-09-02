@@ -4,21 +4,58 @@ import ListaInvitados from './ListaInvitados';
 class App extends Component {
 
   state = { 
-    invitados : [
+    invitados: [
       {
         nombre: 'Mengano',
-        confirmado: true
+        confirmado: true,
+        editando: false
       },
       {
         nombre: 'Sutano',
-        confirmado: false
+        confirmado: false,
+        editando: false
       }
   ]};
   
   getTotalInvitados = () => this.state.invitados.length;
   //getConfirmados
-  //getNoConfirmados  
+  //getNoConfirmados
 
+  /**
+   * Cambia una propiedad bool de un invitado en su opuesto
+   * @param {number} index Indice del invitado en el array
+   * @param {boolean} propiedad Propiedad a cambiar
+   */
+  togglePropiedad = (index, propiedad) => {
+    this.setState((prevState) => {
+
+      const invitadosArray = prevState.invitados;
+      invitadosArray[index][propiedad] = !invitadosArray[index][propiedad];
+
+      return ({
+        invitados: invitadosArray
+      })
+      
+    })
+  }
+
+  /**
+   * Cambia el nombre de un invitado
+   * @todo refactorizar funciones para una func changeState general
+   * @param {number} index Indice del invitado en el array
+   * @param {string} nombre Nombre del invitado
+   */
+  cambiarNombre = (index, nombre) => {
+    this.setState((prevState) => {
+      const invitadosArray = prevState.invitados;
+      invitadosArray[index].nombre = nombre;
+
+      return ({
+        invitados: invitadosArray
+      })
+      
+    })
+  }
 
   render() {
     return (
@@ -54,7 +91,11 @@ class App extends Component {
               </tr>
             </tbody>
           </table>
-          <ListaInvitados invitados={this.state.invitados} />
+          <ListaInvitados 
+            invitados={this.state.invitados} 
+            togglePropiedad={this.togglePropiedad}
+            cambiarNombre={this.cambiarNombre}
+          />
         </div>
       </div>
     );

@@ -1,25 +1,26 @@
 import React from "react";
 import PropTypes from 'proptypes';
+import Invitado from './Invitado';
 
 const ListaInvitados = props => 
   <ul>
     { props.invitados.map( (invitado, index) => 
-    <li 
-      key={index}
-      className={ invitado.confirmado ? 'confirmado' : 'pendiente' } 
-    >
-      <span>{invitado.nombre}</span>
-      <label>
-        <input type="checkbox" checked /> Asistir&aacute;
-      </label>
-      <button>editar</button>
-      <button>eliminar</button>
-    </li>
+      <Invitado
+        key={index}
+        index={index}
+        confirmado={invitado.confirmado}
+        editando={invitado.editando}
+        nombre={invitado.nombre}
+        handleToggle={propiedad => props.togglePropiedad(index, propiedad)}
+        handleEditarNombre={e => props.cambiarNombre(index, e.target.value)}
+      />
     )}
   </ul>
 
 ListaInvitados.propTypes = {
-  invitados: PropTypes.array.isRequired
+  invitados: PropTypes.array.isRequired,
+  togglePropiedad: PropTypes.func.isRequired,
+  cambiarNombre: PropTypes.func.isRequired
 }
 
 export default ListaInvitados;
