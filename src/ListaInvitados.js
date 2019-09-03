@@ -4,8 +4,9 @@ import Invitado from './Invitado';
 
 const ListaInvitados = props => 
   <ul>
-    { props.invitados.filter(invitado => !props.filtrando || invitado.confirmado)
-      .map( (invitado, index) => 
+    { props.invitados.map( (invitado, index) => {
+
+      if (!props.filtrando || invitado.confirmado) return (
         <Invitado
           key={index}
           index={index}
@@ -16,7 +17,12 @@ const ListaInvitados = props =>
           handleCambiarEdicion={() => props.toggleEdicion(index)}
           handleEditarNombre={e => props.cambiarNombre(index, e.target.value)}
         />
-      )}
+      )
+
+      //agregar un return sin efecto solo para que eslint no emita un warning
+      return false;
+
+    })}
   </ul>
 
 ListaInvitados.propTypes = {

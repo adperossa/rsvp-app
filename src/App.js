@@ -9,13 +9,18 @@ class App extends Component {
   state = { 
     invitados: [
       {
-        nombre: 'Mengano',
+        nombre: 'Juan',
+        confirmado: false,
+        editando: false
+      },
+      {
+        nombre: 'Pedro',
         confirmado: true,
         editando: false
       },
       {
-        nombre: 'Sutano',
-        confirmado: false,
+        nombre: 'Tony',
+        confirmado: true,
         editando: false
       }
     ],
