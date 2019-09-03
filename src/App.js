@@ -3,6 +3,9 @@ import ListaInvitados from './ListaInvitados';
 
 class App extends Component {
 
+  // Como es una aplicación muy simple, acumulo todo el state en el componente contenedor.
+  // De aumentar la complejidad convendría convertir algunos comp funcionales en clases con su propio state y
+  // manejar localmente variables como la usada para el filtro, o el estado de 'editando' el nombre en cada Invitado
   state = { 
     invitados: [
       {
@@ -15,11 +18,17 @@ class App extends Component {
         confirmado: false,
         editando: false
       }
-  ]};
+    ],
+    filtrando: false
+  };
   
   getTotalInvitados = () => this.state.invitados.length;
-  //getConfirmados
-  //getNoConfirmados
+  
+  toggleFiltro = () => {
+    this.setState({
+      filtrando: !this.state.filtrando
+    })
+  }
 
   /**
    * Cambia una propiedad bool de un invitado en su opuesto
@@ -37,6 +46,17 @@ class App extends Component {
       })
       
     })
+  }
+
+  // Funciones utilitarias, llaman a togglePropiedad con cada caso en particular.
+  // Desagregadas de togglePropiedad para abstraer funcionalidad, mantener compartimentalizacion
+  // y mejorar mantenimiento
+  toggleConfirmacion = (index) => {
+    this.togglePropiedad(index, 'confirmado');
+  }
+
+  toggleEdicion = (index) => {
+    this.togglePropiedad(index, 'editando');
   }
 
   /**
@@ -72,7 +92,10 @@ class App extends Component {
           <div>
             <h2>Invitados</h2>
             <label>
-              <input type="checkbox" /> Ocultar los que no han respondido
+              <input 
+                type="checkbox"
+                checked={this.state.filtrando}
+                onChange={this.toggleFiltro} /> Ocultar los que no han respondido
             </label>
           </div>
           <table class="counter">
@@ -92,8 +115,10 @@ class App extends Component {
             </tbody>
           </table>
           <ListaInvitados 
-            invitados={this.state.invitados} 
-            togglePropiedad={this.togglePropiedad}
+            invitados={this.state.invitados}
+            filtrando={this.state.filtrando}
+            toggleConfirmacion={this.toggleConfirmacion}
+            toggleEdicion={this.toggleEdicion}
             cambiarNombre={this.cambiarNombre}
           />
         </div>

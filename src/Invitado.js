@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'proptypes';
 
-const Invitado = ({ nombre, confirmado, editando, handleToggle, handleEditarNombre }) => 
+const Invitado = ({ nombre, confirmado, editando, handleCambiarConfirmacion, handleCambiarEdicion, handleEditarNombre }) => 
   <li className={ confirmado ? 'confirmado' : 'pendiente' }>
     { editando ?
-        <input type="text" value={nombre} onChange={handleEditarNombre} onKeyPress={e => e.key === 'Enter' ? handleToggle('editando') : null} />
+        <input type="text" value={nombre} onChange={handleEditarNombre} onKeyPress={e => e.key === 'Enter' ? handleCambiarEdicion() : null} />
       :
         <span>{nombre}</span>
     }
@@ -12,10 +12,9 @@ const Invitado = ({ nombre, confirmado, editando, handleToggle, handleEditarNomb
       <input 
         type="checkbox" 
         checked={confirmado}
-        onChange={() => handleToggle('confirmado')} 
-      /> Asistir&aacute;
+        onChange={handleCambiarConfirmacion} /> Asistir&aacute;
     </label>
-    <button onClick={() => handleToggle('editando')}>
+    <button onClick={handleCambiarEdicion}>
       {editando ? 'guardar' : 'editar'}
     </button>
     <button>eliminar</button>
@@ -25,7 +24,8 @@ Invitado.propTypes = {
   confirmado: PropTypes.bool.isRequired,
   editando: PropTypes.bool.isRequired,
   nombre: PropTypes.string.isRequired,
-  handleToggle: PropTypes.func.isRequired,
+  handleCambiarConfirmacion: PropTypes.func.isRequired,
+  handleCambiarEdicion: PropTypes.func.isRequired,
   handleEditarNombre: PropTypes.func.isRequired
 }
 
