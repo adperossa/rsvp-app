@@ -4,7 +4,7 @@ import Invitado from './Invitado';
 
 const ListaInvitados = props => 
   <ul>
-    { props.invitados.filter( (invitado) => !props.filtrando || invitado.confirmado )
+    { props.invitados.filter(invitado => !props.filtrando || invitado.confirmado)
       .map( (invitado, index) => 
         <Invitado
           key={index}
