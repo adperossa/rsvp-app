@@ -1,9 +1,11 @@
 import React from "react";
 import PropTypes from 'proptypes';
+import InvitadoPendiente from './InvitadoPendiente'
 import Invitado from './Invitado';
 
 const ListaInvitados = props => (
   <ul>
+    <InvitadoPendiente nombre={props.invitadoPorAgregar} />
     { props.invitados.map( (invitado, index) => {
 
       if (!props.filtrando || invitado.confirmado) return (
@@ -32,7 +34,8 @@ ListaInvitados.propTypes = {
   toggleConfirmacion: PropTypes.func.isRequired,
   toggleEdicion: PropTypes.func.isRequired,
   cambiarNombre: PropTypes.func.isRequired,
-  eliminarInvitado: PropTypes.func.isRequired
+  eliminarInvitado: PropTypes.func.isRequired,
+  invitadoPorAgregar: PropTypes.string.isRequired
 }
 
 export default ListaInvitados;

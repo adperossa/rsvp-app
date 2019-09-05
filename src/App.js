@@ -186,6 +186,7 @@ class App extends Component {
             toggleEdicion={this.toggleEdicion}
             cambiarNombre={this.cambiarNombre}
             eliminarInvitado={this.eliminarInvitado}
+            invitadoPorAgregar={this.state.invitadoPorAgregar}
           />
         </div>
       </div>
