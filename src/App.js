@@ -61,10 +61,11 @@ class App extends Component {
   toggleConfirmacion = index => {
     this.togglePropiedad(index, 'confirmado');
   }
-
   toggleEdicion = index => {
     this.togglePropiedad(index, 'editando');
   }
+
+  //fin utilitarias
 
   /**
    * Cambia el nombre de un invitado
@@ -84,6 +85,11 @@ class App extends Component {
     })
   }
 
+  /**
+   * Agrega un nuevo invitado al array.
+   * @param {Object} event El evento onSubmit pasado desde el componente de 
+   * agregar invitados, usado para preventDefault
+   */
   agregarInvitado = event => {
     event.preventDefault();
       
@@ -99,13 +105,21 @@ class App extends Component {
       invitadoPorAgregar: ''
     }))
   }
-
+  
+  /**
+   * maneja el state del input controlado del componente hijo AgregarInvitado
+   * @param {Object} event El evento onChange del input
+   */
   inputInvitadoPorAgregar = event => {
     this.setState({
       invitadoPorAgregar: event.target.value
     });
   }
   
+  /**
+   * Borra a un invitado del array basandose en el index recibido
+   * @param {number} index El indice correspondiente al invitado a borrar
+   */
   eliminarInvitado = index => {
     this.setState(prevState => {
       const newInvitados = prevState.invitados.filter( invitado => prevState.invitados[index] !== invitado);
@@ -116,7 +130,7 @@ class App extends Component {
   }
 
   /* 
-  // método con slice
+  // mismo método pero usando slice
   eliminarInvitado = index => {
     this.setState(prevState => ({ 
       invitados: [
