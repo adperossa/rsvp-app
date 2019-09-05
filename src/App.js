@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ListaInvitados from './ListaInvitados';
 import AgregarInvitado from './AgregarInvitado';
+import Contador from './Contador';
 
 class App extends Component {
 
@@ -30,7 +31,10 @@ class App extends Component {
   };
   
   getTotalInvitados = () => this.state.invitados.length;
-  
+  getConfirmados = () => this.state.invitados.reduce((acc, invitado) => invitado.confirmado ? acc + 1 : acc, 0)
+  getSinConfirmar = () => this.getTotalInvitados() - this.getConfirmados();
+
+
   toggleFiltro = () => {
     this.setState({
       filtrando: !this.state.filtrando
@@ -163,22 +167,11 @@ class App extends Component {
                 onChange={this.toggleFiltro} /> Ocultar los que no han respondido
             </label>
           </div>
-          <table class="counter">
-            <tbody>
-              <tr>
-                <td>Asistir&aacute;n:</td>
-                <td>2</td>
-              </tr>
-              <tr>
-                <td>Sin confirmar:</td>
-                <td>1</td>
-              </tr>
-              <tr>
-                <td>Total:</td>
-                <td>3</td>
-              </tr>
-            </tbody>
-          </table>
+          <Contador 
+            confirmados={this.getConfirmados()}
+            sinConfirmar={this.getSinConfirmar()}
+            total={this.getTotalInvitados()}
+          />
           <ListaInvitados 
             invitados={this.state.invitados}
             filtrando={this.state.filtrando}
