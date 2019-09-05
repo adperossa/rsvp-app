@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from 'proptypes';
 import Invitado from './Invitado';
 
-const ListaInvitados = props => 
+const ListaInvitados = props => (
   <ul>
     { props.invitados.map( (invitado, index) => {
 
@@ -24,6 +24,7 @@ const ListaInvitados = props =>
 
     })}
   </ul>
+)
 
 ListaInvitados.propTypes = {
   invitados: PropTypes.array.isRequired,

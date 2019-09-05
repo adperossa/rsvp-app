@@ -25,7 +25,8 @@ class App extends Component {
         editando: false
       }
     ],
-    filtrando: false
+    filtrando: false,
+    invitadoPorAgregar: ''
   };
   
   getTotalInvitados = () => this.state.invitados.length;
@@ -83,21 +84,28 @@ class App extends Component {
     })
   }
 
-  agregarInvitado = nombre => {
-    const nuevoInvitado = {
-      nombre,
-      confirmado: false,
-      editando: false
-    }
-
-    this.setState(prevState => {
-      return ({
-        invitados: [ nuevoInvitado, ...prevState.invitados ]
-      })      
-    })
-
+  agregarInvitado = event => {
+    event.preventDefault();
+      
+    this.setState(prevState => ({
+      invitados: [ 
+        {
+          nombre: this.state.invitadoPorAgregar,
+          confirmado: false,
+          editando: false
+        },
+        ...prevState.invitados
+      ],
+      invitadoPorAgregar: ''
+    }))
   }
 
+  inputInvitadoPorAgregar = event => {
+    this.setState({
+      invitadoPorAgregar: event.target.value
+    });
+  }
+  
   eliminarInvitado = index => {
     this.setState(prevState => {
       const newInvitados = prevState.invitados.filter( invitado => prevState.invitados[index] !== invitado);
@@ -106,7 +114,7 @@ class App extends Component {
       })
     })
   }
-  
+
   /* 
   // método con slice
   eliminarInvitado = index => {
@@ -125,7 +133,11 @@ class App extends Component {
         <header>
           <h1>RSVP</h1>
           <p>Simple app para organizar reuniones.</p>
-          <AgregarInvitado handleAgregarInvitado={this.agregarInvitado}/>
+          <AgregarInvitado 
+            invitadoPorAgregar={this.state.invitadoPorAgregar}
+            handleAgregarInvitado={this.agregarInvitado}
+            handleChange={this.inputInvitadoPorAgregar}
+          />
         </header>
         <div class="main">
           <div>
