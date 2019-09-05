@@ -106,6 +106,18 @@ class App extends Component {
       })
     })
   }
+  
+  /* 
+  // método con slice
+  eliminarInvitado = index => {
+    this.setState(prevState => ({ 
+      invitados: [
+        ...prevState.invitados.slice(0, index),
+        ...prevState.invitados.slice(index + 1)
+      ]
+       }))
+  }
+  */
 
   render() {
     return (
