@@ -1,7 +1,14 @@
 import React from 'react';
 import PropTypes from 'proptypes';
 
-const Invitado = ({ nombre, confirmado, editando, handleCambiarConfirmacion, handleCambiarEdicion, handleEditarNombre }) => 
+const Invitado = ({ 
+  nombre,
+  confirmado,
+  editando, 
+  handleCambiarConfirmacion, 
+  handleCambiarEdicion, 
+  handleEditarNombre, 
+  handleEliminarInvitado }) => 
   <li className={ confirmado ? 'confirmado' : 'pendiente' }>
     { editando ?
         <input type="text" value={nombre} onChange={handleEditarNombre} onKeyPress={e => e.key === 'Enter' ? handleCambiarEdicion() : null} />
@@ -17,7 +24,7 @@ const Invitado = ({ nombre, confirmado, editando, handleCambiarConfirmacion, han
     <button onClick={handleCambiarEdicion}>
       {editando ? 'guardar' : 'editar'}
     </button>
-    <button>eliminar</button>
+    <button  onClick={handleEliminarInvitado}>eliminar</button>
   </li>
 
 Invitado.propTypes = {
@@ -26,7 +33,8 @@ Invitado.propTypes = {
   nombre: PropTypes.string.isRequired,
   handleCambiarConfirmacion: PropTypes.func.isRequired,
   handleCambiarEdicion: PropTypes.func.isRequired,
-  handleEditarNombre: PropTypes.func.isRequired
+  handleEditarNombre: PropTypes.func.isRequired,
+  handleEliminarInvitado: PropTypes.func.isRequired
 }
 
 export default Invitado;

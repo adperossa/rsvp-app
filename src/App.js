@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ListaInvitados from './ListaInvitados';
+import AgregarInvitado from './AgregarInvitado';
 
 class App extends Component {
 
@@ -56,11 +57,11 @@ class App extends Component {
   // Funciones utilitarias, llaman a togglePropiedad con cada caso en particular.
   // Desagregadas de togglePropiedad para abstraer funcionalidad, mantener compartimentalizacion
   // y mejorar mantenimiento
-  toggleConfirmacion = (index) => {
+  toggleConfirmacion = index => {
     this.togglePropiedad(index, 'confirmado');
   }
 
-  toggleEdicion = (index) => {
+  toggleEdicion = index => {
     this.togglePropiedad(index, 'editando');
   }
 
@@ -82,16 +83,37 @@ class App extends Component {
     })
   }
 
+  agregarInvitado = nombre => {
+    const nuevoInvitado = {
+      nombre,
+      confirmado: false,
+      editando: false
+    }
+
+    this.setState(prevState => {
+      return ({
+        invitados: [ nuevoInvitado, ...prevState.invitados ]
+      })      
+    })
+
+  }
+
+  eliminarInvitado = index => {
+    this.setState(prevState => {
+      const newInvitados = prevState.invitados.filter( invitado => prevState.invitados[index] !== invitado);
+      return ({
+        invitados: newInvitados
+      })
+    })
+  }
+
   render() {
     return (
       <div class="App">
         <header>
           <h1>RSVP</h1>
           <p>Simple app para organizar reuniones.</p>
-          <form>
-              <input type="text" value="Safia" placeholder="Agregar Invitado" />
-              <button type="submit" name="submit" value="submit">Agregar</button>
-          </form>
+          <AgregarInvitado handleAgregarInvitado={this.agregarInvitado}/>
         </header>
         <div class="main">
           <div>
@@ -125,6 +147,7 @@ class App extends Component {
             toggleConfirmacion={this.toggleConfirmacion}
             toggleEdicion={this.toggleEdicion}
             cambiarNombre={this.cambiarNombre}
+            eliminarInvitado={this.eliminarInvitado}
           />
         </div>
       </div>

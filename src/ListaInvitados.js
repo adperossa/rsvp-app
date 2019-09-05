@@ -9,13 +9,13 @@ const ListaInvitados = props =>
       if (!props.filtrando || invitado.confirmado) return (
         <Invitado
           key={index}
-          index={index}
           confirmado={invitado.confirmado}
           editando={invitado.editando}
           nombre={invitado.nombre}
           handleCambiarConfirmacion={() => props.toggleConfirmacion(index)}
           handleCambiarEdicion={() => props.toggleEdicion(index)}
           handleEditarNombre={e => props.cambiarNombre(index, e.target.value)}
+          handleEliminarInvitado={() => props.eliminarInvitado(index)}
         />
       )
 
@@ -30,7 +30,8 @@ ListaInvitados.propTypes = {
   filtrando: PropTypes.bool.isRequired,
   toggleConfirmacion: PropTypes.func.isRequired,
   toggleEdicion: PropTypes.func.isRequired,
-  cambiarNombre: PropTypes.func.isRequired
+  cambiarNombre: PropTypes.func.isRequired,
+  eliminarInvitado: PropTypes.func.isRequired
 }
 
 export default ListaInvitados;
