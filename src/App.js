@@ -31,9 +31,9 @@ class App extends Component {
   };
   
   getTotalInvitados = () => this.state.invitados.length;
-  getConfirmados = () => this.state.invitados.reduce((acc, invitado) => invitado.confirmado ? acc + 1 : acc, 0)
-  getSinConfirmar = () => this.getTotalInvitados() - this.getConfirmados();
-
+  getConfirmados = () => this.state.invitados.reduce(
+    (acc, invitado) => invitado.confirmado ? acc + 1 : acc
+  , 0)
 
   toggleFiltro = () => {
     this.setState({
@@ -146,8 +146,13 @@ class App extends Component {
   */
 
   render() {
+    //calcular los datos para el contador
+    const invitadosTotales = this.getTotalInvitados();
+    const invitadosConfirmados = this.getConfirmados();
+    const invitadosSinConfirmar = invitadosTotales - invitadosConfirmados;
+
     return (
-      <div class="App">
+      <div className="App">
         <header>
           <h1>RSVP</h1>
           <p>Simple app para organizar reuniones.</p>
@@ -157,7 +162,7 @@ class App extends Component {
             handleChange={this.inputInvitadoPorAgregar}
           />
         </header>
-        <div class="main">
+        <div className="main">
           <div>
             <h2>Invitados</h2>
             <label>
@@ -168,9 +173,9 @@ class App extends Component {
             </label>
           </div>
           <Contador 
-            confirmados={this.getConfirmados()}
-            sinConfirmar={this.getSinConfirmar()}
-            total={this.getTotalInvitados()}
+            confirmados={invitadosConfirmados}
+            sinConfirmar={invitadosSinConfirmar}
+            total={invitadosTotales}
           />
           <ListaInvitados 
             invitados={this.state.invitados}

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Contador = props => (
-  <table class="counter">
+  <table className="counter">
     <tbody>
       <tr>
         <td>Asistir&aacute;n:</td>
