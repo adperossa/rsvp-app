@@ -8,6 +8,7 @@ class App extends Component {
   // Como es una aplicación muy simple, acumulo todo el state en el componente contenedor.
   // De aumentar la complejidad convendría convertir algunos comp funcionales en clases con su propio state y
   // manejar localmente variables como la usada para el filtro, o el estado de 'editando' el nombre en cada Invitado
+  // TODO: utilizar ID unico para cada invitado en lugar del index
   state = { 
     invitados: [
       {
@@ -30,11 +31,15 @@ class App extends Component {
     invitadoPorAgregar: ''
   };
   
+  // metodos helper para el contador
   getTotalInvitados = () => this.state.invitados.length;
   getConfirmados = () => this.state.invitados.reduce(
     (acc, invitado) => invitado.confirmado ? acc + 1 : acc
   , 0)
 
+  /**
+   * Activa/desactiva la variable del filtro de invitados confirmados
+   */
   toggleFiltro = () => {
     this.setState({
       filtrando: !this.state.filtrando
@@ -111,7 +116,7 @@ class App extends Component {
   }
   
   /**
-   * maneja el state del input controlado del componente hijo AgregarInvitado
+   * maneja el state del input del componente hijo AgregarInvitado
    * @param {Object} event El evento onChange del input
    */
   inputInvitadoPorAgregar = event => {
