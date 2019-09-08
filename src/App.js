@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import ListaInvitados from './ListaInvitados';
-import AgregarInvitado from './AgregarInvitado';
-import Contador from './Contador';
+import Header from './components/Header';
+import Main from './components/Main';
 
 class App extends Component {
 
@@ -158,40 +157,24 @@ class App extends Component {
 
     return (
       <div className="App">
-        <header>
-          <h1>RSVP</h1>
-          <p>Simple app para organizar reuniones.</p>
-          <AgregarInvitado 
-            invitadoPorAgregar={this.state.invitadoPorAgregar}
-            handleAgregarInvitado={this.agregarInvitado}
-            handleChange={this.inputInvitadoPorAgregar}
-          />
-        </header>
-        <div className="main">
-          <div>
-            <h2>Invitados</h2>
-            <label>
-              <input 
-                type="checkbox"
-                checked={this.state.filtrando}
-                onChange={this.toggleFiltro} /> Ocultar los que no han respondido
-            </label>
-          </div>
-          <Contador 
-            confirmados={invitadosConfirmados}
-            sinConfirmar={invitadosSinConfirmar}
-            total={invitadosTotales}
-          />
-          <ListaInvitados 
-            invitados={this.state.invitados}
-            filtrando={this.state.filtrando}
-            toggleConfirmacion={this.toggleConfirmacion}
-            toggleEdicion={this.toggleEdicion}
-            cambiarNombre={this.cambiarNombre}
-            eliminarInvitado={this.eliminarInvitado}
-            invitadoPorAgregar={this.state.invitadoPorAgregar}
-          />
-        </div>
+        <Header 
+          invitadoPorAgregar={this.state.invitadoPorAgregar}
+          agregarInvitado={this.agregarInvitado}
+          inputInvitadoPorAgregar={this.inputInvitadoPorAgregar}
+        />
+        <Main 
+          filtrando={this.state.filtrando}
+          toggleFiltro={this.toggleFiltro}
+          confirmados={invitadosConfirmados}
+          sinConfirmar={invitadosSinConfirmar}
+          total={invitadosTotales}
+          invitados={this.state.invitados}
+          toggleConfirmacion={this.toggleConfirmacion}
+          toggleEdicion={this.toggleEdicion}
+          cambiarNombre={this.cambiarNombre}
+          eliminarInvitado={this.eliminarInvitado}
+          invitadoPorAgregar={this.state.invitadoPorAgregar}
+        />
       </div>
     );
 
