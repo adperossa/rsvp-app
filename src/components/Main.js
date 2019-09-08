@@ -6,28 +6,28 @@ import ListaInvitados from './ListaInvitados';
 
 const Main = props => (
   <div className="main">
-          <div>
-            <h2>Invitados</h2>
-            <Filtro 
-              filtrando={props.filtrando}
-              toggleFiltro={props.toggleFiltro}
-            />
-          </div>
-          <Contador 
-            confirmados={props.confirmados}
-            sinConfirmar={props.sinConfirmar}
-            total={props.total}
-          />
-          <ListaInvitados 
-            invitados={props.invitados}
-            filtrando={props.filtrando}
-            toggleConfirmacion={props.toggleConfirmacion}
-            toggleEdicion={props.toggleEdicion}
-            cambiarNombre={props.cambiarNombre}
-            eliminarInvitado={props.eliminarInvitado}
-            invitadoPorAgregar={props.invitadoPorAgregar}
-          />
-        </div>
+    <div>
+      <h2>Invitados</h2>
+      <Filtro 
+        filtrando={props.filtrando}
+        toggleFiltro={props.toggleFiltro}
+      />
+    </div>
+    <Contador 
+      confirmados={props.confirmados}
+      sinConfirmar={props.sinConfirmar}
+      total={props.total}
+    />
+    <ListaInvitados 
+      invitados={props.invitados}
+      filtrando={props.filtrando}
+      toggleConfirmacion={props.toggleConfirmacion}
+      toggleEdicion={props.toggleEdicion}
+      cambiarNombre={props.cambiarNombre}
+      eliminarInvitado={props.eliminarInvitado}
+      invitadoPorAgregar={props.invitadoPorAgregar}
+    />
+  </div>
 )
 
 Main.propTypes = {
