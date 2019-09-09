@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/adperossa/rsvp-app/static/css/main.f6238a62.chunk.css",
-    "main.js": "/adperossa/rsvp-app/static/js/main.ad309faf.chunk.js",
-    "main.js.map": "/adperossa/rsvp-app/static/js/main.ad309faf.chunk.js.map",
-    "runtime~main.js": "/adperossa/rsvp-app/static/js/runtime~main.93a4321a.js",
-    "runtime~main.js.map": "/adperossa/rsvp-app/static/js/runtime~main.93a4321a.js.map",
-    "static/js/2.967d51a9.chunk.js": "/adperossa/rsvp-app/static/js/2.967d51a9.chunk.js",
-    "static/js/2.967d51a9.chunk.js.map": "/adperossa/rsvp-app/static/js/2.967d51a9.chunk.js.map",
-    "index.html": "/adperossa/rsvp-app/index.html",
-    "precache-manifest.24da816af30ad8e771ad4836d4446c36.js": "/adperossa/rsvp-app/precache-manifest.24da816af30ad8e771ad4836d4446c36.js",
-    "service-worker.js": "/adperossa/rsvp-app/service-worker.js",
-    "static/css/main.f6238a62.chunk.css.map": "/adperossa/rsvp-app/static/css/main.f6238a62.chunk.css.map",
-    "static/media/index.css": "/adperossa/rsvp-app/static/media/header-bg.be92ab00.jpg"
+    "main.css": "/rsvp-app/static/css/main.539698b3.chunk.css",
+    "main.js": "/rsvp-app/static/js/main.ad309faf.chunk.js",
+    "main.js.map": "/rsvp-app/static/js/main.ad309faf.chunk.js.map",
+    "runtime~main.js": "/rsvp-app/static/js/runtime~main.4ad72bac.js",
+    "runtime~main.js.map": "/rsvp-app/static/js/runtime~main.4ad72bac.js.map",
+    "static/js/2.967d51a9.chunk.js": "/rsvp-app/static/js/2.967d51a9.chunk.js",
+    "static/js/2.967d51a9.chunk.js.map": "/rsvp-app/static/js/2.967d51a9.chunk.js.map",
+    "index.html": "/rsvp-app/index.html",
+    "precache-manifest.1cecf9a154ea19b8414b32c53a064b72.js": "/rsvp-app/precache-manifest.1cecf9a154ea19b8414b32c53a064b72.js",
+    "service-worker.js": "/rsvp-app/service-worker.js",
+    "static/css/main.539698b3.chunk.css.map": "/rsvp-app/static/css/main.539698b3.chunk.css.map",
+    "static/media/index.css": "/rsvp-app/static/media/header-bg.be92ab00.jpg"
   }
 }
