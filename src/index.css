@@ -135,7 +135,8 @@ li input[type=text]:first-child {
   display: block;
 }
 
-li button {
+li button,
+.container-cache button {
   font-size: .78em;
   margin-top: 1.65em;
   margin-right: .4em;
@@ -171,7 +172,8 @@ td:last-child {
   font-size: 1.16em;
   color: rgb(118, 118, 118);
 }
-/* pending */
+
+/* pendientes */
 
 .pendiente {
   border-color: rgba(210, 210, 210, .5);
@@ -180,7 +182,8 @@ td:last-child {
 .pendiente span {
   color: rgb(210, 210, 210);
 }
-/* responded */
+
+/* confirmados */
 
 .confirmado {
   -webkit-transition: 0.4s;
@@ -195,6 +198,27 @@ td:last-child {
   transition: 0.4s;
   color: rgba(88, 183, 205, 1);
 }
+
+/* controles cache */
+
+.main .container-cache {
+  float: right;
+}
+
+.aviso-cache {
+  display: inline-block;
+  margin-right: 20px;
+  text-shadow: none;
+  font-size: .9em;
+  color: #767676;
+}
+
+.container-cache .boton-eliminar-cache {
+  background-color: #a13d63;
+}
+
+
+
 /* =================================
   Media Queries
 ==================================== */
@@ -239,6 +263,19 @@ td:last-child {
   tr {
     display: inline-block;
     padding: 0 12px 0 0;
+  }
+  .main .container-cache {
+    float: none;
+  }
+  .aviso-cache {
+    margin-top: 0;
+    text-align: center;
+    width: 60%;
+  }
+  .container-cache .boton-eliminar-cache {
+    width: 30%;
+    margin-top: 0;
+    vertical-align: top;
   }
 }
 

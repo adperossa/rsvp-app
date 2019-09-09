@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Filtro from './Filtro';
 import Contador from './Contador';
 import ListaInvitados from './ListaInvitados';
+import ControlesCache from './ControlesCache';
 
 const Main = props => (
   <div className="main">
@@ -27,6 +28,12 @@ const Main = props => (
       eliminarInvitado={props.eliminarInvitado}
       invitadoPorAgregar={props.invitadoPorAgregar}
     />
+    { 
+      window.localStorage.rsvp_cachelocal ?
+        <ControlesCache borrarLocalStorage={props.borrarLocalStorage} />
+      :
+        null       
+    }
   </div>
 )
 
@@ -41,7 +48,8 @@ Main.propTypes = {
   toggleEdicion: PropTypes.func.isRequired,
   cambiarNombre: PropTypes.func.isRequired,
   eliminarInvitado: PropTypes.func.isRequired,
-  invitadoPorAgregar: PropTypes.string.isRequired
+  invitadoPorAgregar: PropTypes.string.isRequired,
+  borrarLocalStorage: PropTypes.func.isRequired
 }
 
 export default Main;
