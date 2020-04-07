@@ -1,68 +1,20 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# RSVP - WebApp para organizar reuniones
+Una aplicación web de demostración, para llevar la cuenta de invitados a una reunión, ya sea confirmados o no.
 
-## Available Scripts
+![Ejemplo](screenshot.png)
 
-In the project directory, you can run:
 
-### `npm start`
+[Probala!](https://adperossa.github.io/rsvp-app/)
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Descripción
+Originalmente realicé este proyecto sólo con HTML, CSS y Javascript puro, como una forma de practicar la interactividad de JS con el DOM y algunas APIs que el navegador pone a disposición. Era una de las sugerencias de ideas para realizar apps propias dentro del trayecto de Web Developer del sitio TeamTreehouse.
 
-### `npm test`
+Luego a medida que fui aprendiendo React se me ocurrió refactorearlo con esta librería, para tomar experiencia en tomar una base de código antigua y pasarla a formas de trabajo más modernas. Personalmente creo que usar librerías pesadas para algo tan simple es un desperdicio de recursos si fuera un caso real y no una demo de práctica, ya que React brilla para aplicaciones con muchos datos (especialmente asincrónicos) y muchas actualizaciones de la vista.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+En esta segunda etapa al pasarlo a React, le agregué la funcionalidad de guardar un estado local utilizando la API de localStorage provista por los browser. De esta manera es un poco más interactivo y útil.
 
-### `npm run build`
+Se uso **React 16** pero sin Hooks, sino componentes de clase.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## TODO
+Agregar validación para no ingresar un usuario sin nombre.
